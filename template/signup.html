@@ -1,6 +1,39 @@
+
+<!--<div class="form-container sign-up-container" style="padding: 40px; display: {% if show_signup %}flex{% else %}none{% endif %}; flex-direction: column; align-items: center; justify-content: center; background: url('{% static 'signup-background.jpg' %}') no-repeat center center fixed; background-size: cover;">
+    <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        <h1 style="margin-bottom: 20px; text-align:center">Sign Up</h1>
+        <input type="text" name="username" placeholder="Username" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="email" name="email" placeholder="Email" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <input type="password" name="password" placeholder="Password" style="width: 100%; padding: 10px; margin: 8px 0; border: 1px solid #ccc; border-radius: 5px;">
+        <button style="width: 100%; padding: 10px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Sign Up</button>
+    </form>
+    <button onclick="toggleSignup()" style="margin-top: 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer;">Sign In</button>
+</div>-->
 {% extends 'base.html' %}
-{% block title %}About{% endblock title %}
+{% block title %}Sign Up{% endblock title %}
 {% block body %}
+<div class="form-container sign-up-container">
+    <form action="{% url 'signup' %}" method="post">
+        {% csrf_token %}
+        <h1>Sign Up</h1>
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Username" required>
 
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" placeholder="Email" required>
 
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="#" onclick="toggleSignup(); return false;">Sign In</a></p>
+</div>
+
+<script>
+    function toggleSignup() {
+        
+    }
+</script>
 {% endblock body %}

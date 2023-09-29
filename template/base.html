@@ -10,7 +10,6 @@
   {% load static %}
   <link rel="stylesheet" href="{%static 'style.css'%}">
 </head>
-
 <body >
   <nav class="navbar-overlay navbar navbar-expand-md navbar-dark sticky-top bg-black">
     <div class="container-fluid">
@@ -19,20 +18,26 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="m-auto navbar-nav">
-          <a href="/" data-rr-ui-event-key="/" class="text-center active nav-link"> Home </a>
-          <a href="/about" data-rr-ui-event-key="/about" class="text-center nav-link"> About </a>
-          <a href="/security" data-rr-ui-event-key="/security" class="text-center nav-link"> Security </a>
-          <a href="/resources" data-rr-ui-event-key="/resources" class="text-center nav-link"> Resources </a>
-          <a href="/contact" target="_blank" data-rr-ui-event-key="#" class="text-center 	nav-link">Contact</a>
+          <a href="/" data-rr-ui-event-key="/" class="text-center {% if request.path == '/' %}active{% endif %} nav-link"> Home </a>
+          <a href="/about" data-rr-ui-event-key="/about" class="text-center {% if request.path == '/about' %}active{% endif %} nav-link"> About </a>
+          <a href="/security" data-rr-ui-event-key="/security" class="text-center {% if request.path == '/security' %}active{% endif %} nav-link"> Security </a>
+          <a href="/resources" data-rr-ui-event-key="/resources" class="text-center {% if request.path == '/resources' %}active{% endif %} nav-link"> Resources </a>
+          <a href="/contact" data-rr-ui-event-key="/contact" class="text-center {% if request.path == '/contact' %}active{% endif %} nav-link">Contact</a>          
         </div>
-        
       </div>
     </div>
   </nav>
-
+  {% for message in messages %}
+  <div class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show" role="alert">
+    <strong>Message: </strong>{{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  {% endfor %}
+  
   {% block body %}
-
+a
   {% endblock body %}
+  
 </body>
 
 </html>

@@ -1,54 +1,28 @@
 {% extends 'base.html' %}
 {% block title %}contact{% endblock title %}
 {% block body %}
-    <div class="container">
-      <form>
-        <div class="input-group">
-          <input type="text" id="name" name="name" required>
-          <label for="name">Your Name</label>
+    <div class="container my-3">
+      <h2>Contact Us</h2>
+      <form action="/contact" method="post"><!--for submiting on the same page-->
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="text" class="form-control" id="name" name="name" aria-describedby="name">
         </div>
-        <div class="input-group">
-          <input type="email" id="email" name="email" required>
-          <label for="email">Email</label>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
-        <div class="input-group">
-          <textarea id="message" name="message" required></textarea>
-          <label for="message">Message</label>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input type="phone" class="form-control" name="phone" id="phone">
         </div>
-        
-        <div>
-          <input type="submit" value="Send Message">
+        <div class="mb-3">
+          <label for="content" class="form-label">Describe your issue:</label>
+          <textarea class="form-control" name="content" id="content" cols="30" rows="5"></textarea>
         </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
       </form>
-
-      <div class="social-links">
-        <a href="https://github.com/your-username" target="_blank" rel="noopener noreferrer">
-          <img src="github.png" alt="GitHub">
-        </a>
-        <a href="https://linkedin.com/in/your-username" target="_blank" rel="noopener noreferrer">
-          <img src="linkedin.png" alt="LinkedIn">
-        </a>
-        <a href="https://discord.gg/your-discord-invite-link" target="_blank" rel="noopener noreferrer">
-          <img src="discord.png" alt="Discord">
-        </a>
-        <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-          <img src="instagram.png" alt="Instagram">
-        </a>
-      </div>
-
-      <div class="university-info">
-        <div>
-          <p class="faded-text">NFSU, Gandhinagar</p>
-          <img src="placeholder.png" alt="Location">
-        </div>
-        <div>
-          <p class="faded-text">Phone: xxxxxxxxxx</p>
-          <img src="phone.png" alt="Call">
-        </div>
-        <div>
-          <p class="faded-text">Email: info@university.com</p>
-          <img src="gmail.png" alt="Email">
-        </div>
-      </div>
     </div>
 {% endblock body %}
