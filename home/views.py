@@ -3,6 +3,7 @@ from home.models import Contact
 from django.contrib import messages
 from .models import User
 from django.contrib.auth.hashers import make_password
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def index(request):
@@ -30,8 +31,8 @@ def contact(request):
             contact.save()
             messages.success(request,"Your issue has been Successfully saved")
     return render(request,"contact.html")
-def signin(request):
-    return render(request,"signin.html")
+#def signin(request):
+#    return render(request,"signin.html")
 
 def signup(request):
     if request.method == 'POST':
@@ -46,14 +47,17 @@ def signup(request):
         # Create a new user with the hashed password
         user = User.objects.create(username=username, email=email, password=password_hash)
         user.save()
-        # Redirect to the login page or any other appropriate page
-        return redirect('login')
+         # Log in the user after registration
 
-    return render(request, 'signup.html')
+
+        messages.success(request, "Successfully registered and logged in")
+        #return redirect('dashboard')#this can be change 
+        # Redirect to the login page or any other appropriate page
+        #return redirect('login')
+
+    return render(request, "signup.html")
 
 def login(request):
-    error_message = ''  # Initialize the error message variable
-
     if request.method == 'POST':
         # Retrieve user input from the form
         username = request.POST['username']
@@ -65,19 +69,33 @@ def login(request):
         if user:
             # Successful login, set a session or use Django's authentication system
             # For simplicity, we'll set a session here
-            request.session['user_id'] = user.id
+            #request.session['user_id'] = user.id
+            #auth_login(request, user)
+            
+            user = authenticate(username=username,password=password)
+            
+        if user is not None:
+            login(request,user)
+            messages.success(request,"Successfully Logged In")
             return redirect('dashboard')
-
         # Invalid credentials, display an error
-        error_message = 'Invalid username or password'
+        else:
+            messages.error(request,"Invalid Credentials, Please Try Again")
+            return redirect('dashboard')
+            
+        #error_message = 'Invalid username or password'
 
-    return render(request, 'login.html', {'error_message': error_message})
+    #return render(request, "login.html", {'error_message': error_message})
+    return render(request, "login.html")
 
 
 def dashboard(request):
     # Check if the user is authenticated (you can use Django's authentication system)
+    return render(request, 'dashboard.html')
+'''
     if 'user_id' in request.session:
         return render(request, 'dashboard.html')
 
     # If not authenticated, redirect to the login page
     return redirect('login')
+'''

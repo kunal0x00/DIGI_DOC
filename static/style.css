@@ -9,8 +9,8 @@
   font-variant: normal;
   text-rendering: auto;
   line-height: 1;
+  font-family: "Font Awesome 5 Pro"; /* Add this line to set the same font family */
 }
-
 .fa-flag:before {
   content: "\f024";
 }
@@ -68,7 +68,6 @@ h1 {
   line-height: 1.2;
   margin-bottom: .5rem;
   margin-top: 0;
-  font-family: fantasy;/*not working*/
 }
 
 h1 {
@@ -96,14 +95,14 @@ ul {
 }
 
 a {
-  color: #0d6efd;
-  color: var(--bs-link-color);
-  text-decoration: underline;
+  color: #c7c6c1;
+  text-decoration: none;
 }
 
 a:hover {
   color: #0a58ca;
   color: var(--bs-link-hover-color);
+  /* Other styles for links on hover */
 }
 
 .display-1 {
@@ -285,19 +284,40 @@ li {
 ul {
   padding: 0;
 }
+/*added by me*/
 .btn-fancy {
-  background-color: #007bff; /* Button background color */
+  background-color: transparent; /* Set the background color to transparent */
   color: #fff; /* Text color */
   border: none;
-  border-radius: 25px; /* Adjust border radius as needed */
   padding: 10px 20px; /* Adjust padding as needed */
   font-size: 18px; /* Adjust font size as needed */
   text-decoration: none;
-  transition: background-color 0.3s ease; /* Add a smooth transition effect */
+  transition: color 0.3s ease; /* Add a smooth transition effect for text color */
 }
 
 .btn-fancy:hover {
-  background-color: #0056b3; /* Change background color on hover */
+  color: #0056b3; /* Change text color on hover */
+}
+/* Center align the navigation links */
+.navbar-nav {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  padding-left: 10%;
+}
+
+/* Adjust spacing between navigation links */
+
+
+/* Center align the sign-in and sign-up links */
+.ml-auto {
+  display: flex;
+  align-items: center;
+}
+
+/* Add space between sign-in and sign-up links */
+.ml-auto > a {
+  margin-left: 20px;
 }
 
 

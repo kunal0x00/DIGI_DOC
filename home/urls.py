@@ -11,10 +11,9 @@ urlpatterns = [
     path("security",views.security,name='security'),
     path("resources",views.resources,name='resources'),
     path("contact",views.contact,name='contact'),
-    path("signin",views.signin,name='signin'),
-    path("signup",views.signup,name='signup'),
+    path("signup/",views.signup,name='signup'),
     path('login/', views.login, name='login'),
-    path('dashboard', views.dashboard, name='dashboard')
+    path('dashboard/', views.dashboard, name='dashboard')
 ]
 
 #newly added

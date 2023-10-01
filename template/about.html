@@ -1,31 +1,150 @@
 {% extends 'base.html' %}
 {% load static %}
-<head>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="{%static 'style.css'%}">
 {% block title %}About{% endblock title %}
+
+
+
 {% block body %}
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-    <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img src="{% static 'images/img2.jpg' %}" height="700" width="100" class="d-block w-100" alt="img2">
+<!--
+<div id="video-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden; z-index: -1;">
+    <video autoplay loop muted style="object-fit: cover; width: 100%; height: 100%;">
+        <source src="{% static "video/video2.mp4" %}" type="video/mp4">
+    </video>
+</div>
+-->
+{% block head %}
+<!-- Include Bootstrap CSS -->
+
+<!-- Include your custom CSS file -->
+<link rel="stylesheet" href="{% static 'about.css' %}">
+{% endblock head %}
+<div class="container fade-enter-done">
+    <div class="container">
+        <div><img src="https://cdn-icons-png.flaticon.com/128/10596/10596750.png" width="100px" max-width="100%"
+                class="mx-auto d-block img-fluid"></div>
+        <h1 class="glow">About</h1>
+        <div>
+            <p>Hi, I'm Kunal Choudhary.</p>
+            <p>I am a <span><span>securit</span><span class="typed-cursor">|</span></span></p>
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/img4.jpg' %}" height="700" width="100" class="d-block w-100" alt="img1">
+    </div>
+    <div class="my-5 container">
+        <h2 align="center" class="glow">About DigiDoc</h2>
+        <hr>
+        <div class="my-5">
+            <p>
+                <center>
+                Welcome to Digi Doc, where we redefine the way you secure and manage your documents. In a rapidly
+                evolving digital world, the need for robust document security has never been more critical. Digi Doc was
+                founded with a singular vision: to empower individuals and organizations with state-of-the-art solutions
+                that harness the power of blockchain, Django, database management, and cryptographic technology to
+                safeguard your most sensitive information
+                </center>
+            </p>
         </div>
-        <div class="carousel-item">
-            <img src="{% static 'images/img3.jpg' %}" height="700" width="100" class="d-block w-100" alt="img3">
+    </div>
+    <div class="my-5 container">
+        <h2 align="center" class="glow">Tech Stack</h2>
+        <hr>
+        <div class="my-5">
+            <p style:"font-size:18px">
+
+                <li>Blockchain: Our use of blockchain technology sets us apart. By leveraging the decentralized and
+                immutable nature of blockchain, we provide an unassailable layer of security. Each document is
+                cryptographically sealed, time-stamped, and stored in a distributed ledger, making unauthorized
+                alterations or data breaches virtually impossible.</li>
+
+                <li>Django: Our platform is built on the robust and versatile Django framework, which ensures both the
+                security and scalability of our services. With Django, we offer a user-friendly interface that
+                simplifies the document management process, allowing you to focus on your tasks without worrying about
+                the technical details.</li>
+
+                <li>Database Management: Our advanced database management system ensures the efficient storage and retrieval
+                of your documents. We understand the importance of quick access to your data, and our system is designed
+                to provide just that, all while maintaining the highest levels of security.</li>
+
+                <li>Cryptographic Technology: Encryption is the backbone of document security, and we employ cutting-edge
+                cryptographic techniques to protect your documents from unauthorized access. Your data remains secure
+                even in transit, ensuring end-to-end protection.</li>
+            </p>
+        </div>
+    </div>
+    <div class="my-5 container">
+        <h2 align="center" class="glow">Our Commitment to You</h2>
+        <hr>
+        <div class="my-5">
+            <p>
+                <li>Unparalleled Security: Our technology ensures your documents are shielded from cyber threats and data breaches.</li>
+                
+                <li>Experience: We strive to make document management as intuitive and hassle-free as possible, so you can focus on your core activities.</li>
+                
+                <li>Innovation: We are dedicated to staying ahead of emerging threats and continually improving our services to meet the evolving needs of our users.</li>
+                
+                <li>Reliability: You can count on us to safeguard your data 24/7, 365 days a year.</li>
+                
+                <li>Privacy: We respect your privacy and adhere to the highest standards of data protection.</li>
+                
+            </p>
+        </div>
+    </div>
+    <div class="my-5 container">
+        <h2 align="center" class="glow">Teammates</h2>
+        <hr>
+        <div class="vertical-timeline vertical-timeline--animate vertical-timeline--two-columns">
+            <!-- Timeline Element 1 -->
+            <div id="" class="vertical-timeline-element--school vertical-timeline-element">
+                <span class="vertical-timeline-element-icon bounce-in"
+                    style="background: rgb(0, 51, 51); color: rgb(255, 255, 255);"><i
+                        class="fas fa-graduation-cap center-icon"></i></span>
+                <div class="vertical-timeline-element-content bounce-in"
+                    style="background: rgb(0, 51, 51); color: rgb(255, 255, 255);">
+                    <div class="vertical-timeline-element-content-arrow"
+                        style="border-right: 7px solid rgb(0, 51, 51);"></div>
+                    <h3 class="vertical-timeline-element-title glow">Taneesha Shah</h3>
+                    <p class="vertical-timeline-element-subtitle">Team Lead</p>
+                    <hr>
+                    <p>Backend Developer</p>
+                    <span class="glow vertical-timeline-element-date">Developer</span>
+                </div>
+            </div>
+            <!-- Timeline Element 2 -->
+            <div id="" class="vertical-timeline-element--school vertical-timeline-element">
+                <span class="vertical-timeline-element-icon bounce-in"
+                    style="background: rgb(51, 51, 102); color: rgb(255, 255, 255);"><i
+                        class="fas fa-briefcase center-icon"></i></span>
+                <div class="vertical-timeline-element-content bounce-in"
+                    style="background: rgb(51, 51, 102); color: rgb(255, 255, 255);">
+                    <div class="vertical-timeline-element-content-arrow"
+                        style="border-right: 7px solid rgb(51, 51, 102);"></div>
+                    <h3 class="vertical-timeline-element-title glow">Kunal Choudhary</h3>
+                    <p class="vertical-timeline-element-subtitle">Team Member</p>
+                    <hr>
+                    <p>Frontend Developer</p>
+                    <span class="glow vertical-timeline-element-date">Developer</span>
+                </div>
+            </div>
+            <!-- Timeline Element 3 -->
+            <div id="" class="vertical-timeline-element--school vertical-timeline-element">
+                <span class="vertical-timeline-element-icon bounce-in"
+                    style="background: rgb(102, 0, 0); color: rgb(255, 255, 255);"><i
+                        class="fas fa-scroll center-icon"></i></span>
+                <div class="vertical-timeline-element-content bounce-in"
+                    style="background: rgb(102, 0, 0); color: rgb(255, 255, 255);">
+                    <div class="vertical-timeline-element-content-arrow"
+                        style="border-right: 7px solid rgb(102, 0, 0);"></div>
+                    <h3 class="vertical-timeline-element-title glow">Sidhant Malik</h3>
+                    <p class="vertical-timeline-element-subtitle">Team Member</p>
+                    <hr>
+                    <p>Assistance for both Developer</p>
+                    <span class="glow vertical-timeline-element-date">Developer</span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-<script>
-    // JavaScript to enable automatic carousel cycling
-    $('.carousel').carousel({
-        interval: 2000,  // Change slide every 3 seconds (3000 milliseconds)
-        pause: 'hover'  // Pause when hovering over the carousel
-    });
-</script>
+<footer><span>© <span id="copyrightYear">2023</span> Kunal Choudhary</span></footer>
 {% endblock body %}

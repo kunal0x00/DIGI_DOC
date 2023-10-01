@@ -11,7 +11,11 @@
 {% block title %}Home{% endblock title %}
 
 {% block body %}
-
+<style>
+    body {
+      overflow: hidden; /* Prevent scrolling */
+    }
+  </style>
 <div class="bg-black height:screen overflow-y:hidden text-center">
     <!-- particles.js container -->
     <div id="particles-js"></div>
@@ -28,7 +32,7 @@
                     </span><span class="display-1 loading-animation glow">D</span><span
                         class="display-1 loading-animation glow">O</span><span
                         class="display-1 loading-animation glow">C</span></div>
-                <hr>
+
                 <ul class="list-inline social-landing" id="social-landing-desktop">
                     <li class="list-inline-item glow">
                         <a target="_blank" rel="noreferrer"
@@ -51,18 +55,12 @@
                     </li>
                 </ul>
                 <!-- In your index.html template -->
-                <ul class="list-inline">
-                    <li class="list-inline-item">
-                        <a type="button" class="btn btn-primary btn-fancy" href="{% url 'signin' %}">Sign In</a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a type="button" class="btn btn-secondary btn-fancy" href="{% url 'signup' %}">Sign Up</a>
-                    </li>
-                </ul>
+
             </div>
         </div>
     </div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <script src="{% static 'Particle.js' %}" type="text/javascript"></script>
 <script src="{% static 'custom.js' %}" type="text/javascript"></script>
