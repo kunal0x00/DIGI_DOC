@@ -1,0 +1,13 @@
+take input from users how many nodes, If the no of nodes is n then the matrix will be of nXn.
+take the input from the user for each router.
+take input of netwo+rks in the format of a matrix.
+2 for loop for i and j variable
+if i and j are equal then the value will be 0
+If there is no edge then print infinty
+For which node you want to find the shortest path
+output shortest path from n to all other nodes.
+
+the output should be of size n array 
+minimum value and index. by sequential search 
+update the array after getting sorted vector 
+

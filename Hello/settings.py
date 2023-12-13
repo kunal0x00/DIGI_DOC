@@ -31,7 +31,8 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-
+#newly added
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,7 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
-    
+    #@T newly
+    #'encrypted_files',
+    ##cryptography module for file encryption
+    #'cryptography',
+    #'django_cryptography.fields',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +58,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    #newly added
+    'django.contrib.sessions.middleware.SessionMiddleware',
 ]
 
 ROOT_URLCONF = 'Hello.urls'
@@ -145,3 +152,17 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MESSAGE_TAGS = {
     messages.ERROR : 'danger'
 }
+
+#@T
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+#@T1
+AES_KEY = b'\x1a>\xf8\xcd\xe2\x8e_~V\x14\x98\xc2\x1f\xf9\xea\xf8\xd7c\xb3`!d\xd4\xe3+\xf7Q\x83\xb5~\x8f\xdd'
+
+FILE_UPLOAD_HANDLERS = [
+    "encrypted_files.uploadhandler.EncryptedFileUploadHandler",
+    "django.core.files.uploadhandler.MemoryFileUploadHandler",
+    "django.core.files.uploadhandler.TemporaryFileUploadHandler"
+]

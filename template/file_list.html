@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        {% load static %}
+        <style type="text/css">
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'poppins',sans-serif;
+        }
+        body {
+                    font-family: 'poppins', sans-serif;
+                    background: url('{% static "images/file.jpg" %}')no-repeat;
+                    background-position: center;
+                    background-size: cover;
+                  
+                    margin: 0;
+                    padding: 0;
+                    display: flex;
+                    height: 100vh;
+                    justify-content: center;
+        
+                    
+                }
+        h2{
+            font-size: 2em;
+            text-align: left;
+            color: #0A1FB9;
+            font-family: 'poppins',sans-serif;
+        }
+        table.table{
+                    font-family: 'poppins',sans-serif;
+                    height:100%;
+                    width: 120%;
+                    color:#0A1FB9;
+                    background: transparent;
+                    backdrop-filter: blur(10px);
+                    padding: 30px;
+                    border-radius: 30px;
+                    border: 20px;
+                    box-shadow: 0 0 7px #C6EBED;
+                    margin-top: 30px;
+                    overflow: hidden;
+        
+        
+        }
+        .btn-btn-primary{
+            text-decoration: none;
+            width: 150px;
+            padding: 15px 30px;
+            text-align: center;
+            margin: 25px 10px;
+            border-radius: 25px;
+            
+            border: 1px solid #2DCCFF;
+            background: transparent;
+            color: #2DCCFF;
+            cursor: pointer;
+            position: right;
+            overflow: hidden;
+        }
+        .btn-btn-primary:hover{
+            border:1 solid #2DCCFF;
+            background: #2DCCFF;
+            transition: 1s;
+        }
+        .btn-btn-success{
+            text-decoration: none;
+            width: 150px;
+            padding: 15px 30px;
+            text-align: center;
+            margin: 20px 10px;
+            border-radius: 25px;
+            
+            border: 1px solid #1CF119;
+            background: transparent;
+            color: #1CF119;
+            cursor: pointer;
+            position: right;
+            overflow: hidden;
+        }
+        .btn-btn-success:hover{
+            border:1 solid #1CF119;
+            background: #1CF119;
+            transition: 1s;
+        }
+        .btn-btn-danger{
+            text-decoration: none;
+            width: 150px;
+            padding: 15px 30px;
+            text-align: center;
+            margin: 20px 10px;
+            border-radius: 25px;
+            
+            border: 1px solid #E7473A;
+            background: transparent;
+            color: #E7473A;
+            cursor: pointer;
+            position: right;
+            overflow: hidden;
+        }
+        .btn-btn-danger:hover{
+            border:1 solid #E7473A;
+            background: #E7473A;
+            transition: 1s;
+        }
+        </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">File List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">File Name</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for file in files %}
+                    <tr>
+                        <th scope="row">{{ file.id }}</th>
+                        <td>{{ file.file.name }}</td>
+                        <td> 
+                            <a href="{% url 'download_encrypted_file' file_id=file.id %}" style="text-decoration:none " class="btn-btn-primary"
+                            role="button">Download Encrypted File</a>
+                        <a href="{% url 'download_uploaded_file' file_id=file.id %}" style="text-decoration:none" class="btn-btn-success"
+                            >Download Decrypted File</a>
+                            <a href="{% url 'delete_file' file_id=file.id %}" class="btn-btn-danger" style="text-decoration:none" role="button">Delete File</a> 
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Bootstrap JS and dependencies (optional) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
